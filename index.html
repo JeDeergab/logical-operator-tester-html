@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic Gates Tester</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Logic Gates Tester</h1>
+    <div class="input-group">
+        <label for="inputA">Input A:</label>
+        <input type="checkbox" id="inputA">
+    </div>
+    <div class="input-group">
+        <label for="inputB">Input B:</label>
+        <input type="checkbox" id="inputB">
+    </div>
+    <button onclick="testLogicGates()">Test Gates</button>
+    
+    <h2>Results</h2>
+    <p><strong>NOT A:</strong> <span id="resultNotA"></span></p>
+    <p><strong>NOT B:</strong> <span id="resultNotB"></span></p>
+    <p><strong>A AND B:</strong> <span id="resultAnd"></span></p>
+    <p><strong>A OR B:</strong> <span id="resultOr"></span></p>
+    <p><strong>A XOR B:</strong> <span id="resultXor"></span></p>
+    <p><strong>A NAND B:</strong> <span id="resultNand"></span></p>
+    <p><strong>A XNOR B: </strong> <span id="resultXnor"></span></p>
+
+    <script>
+        function testLogicGates() {
+            // Get the input values as boolean
+            const inputA = document.getElementById('inputA').checked;
+            const inputB = document.getElementById('inputB').checked;
+
+            // Calculate the outputs for each gate
+            const resultNotA = !inputA;
+            const resultNotB = !inputB;
+            const resultAnd = inputA && inputB;
+            const resultOr = inputA || inputB;
+            const resultXor = inputA !== inputB;
+            const resultNand = !(inputA && inputB);
+            const resultXnor = inputA == inputB;
+
+            // Display the results
+            document.getElementById('resultNotA').textContent = resultNotA;
+            document.getElementById('resultNotB').textContent = resultNotB;
+            document.getElementById('resultAnd').textContent = resultAnd;
+            document.getElementById('resultOr').textContent = resultOr;
+            document.getElementById('resultXor').textContent = resultXor;
+            document.getElementById('resultNand').textContent = resultNand;
+            document.getElementById('resultXnor').textContent = resultXnor;
+        }
+    </script>
+</body>
+</html>
